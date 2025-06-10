@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para minha princesa👸🏻</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="envelope-wrapper">
+      <div class="envelope">
+        <div class="letter">
+          <div class="text">
+            <strong>Minha Gordinha,</strong>
+            <p>
+              Obrigado por todo esse tempo do meu lado, me apoiando e me ajudando quando estou perdido, eu ganhei na loteria quando você entrou na minha vida.
+            </p>
+            <p>-Eu te amo!</p>
+          </div>
+        </div>
+      </div>
+      <div class="heart"></div>
+    </div>
+    <div class="hearts-container"></div>
+  </div>
+
+  <script>
+    const envelope = document.querySelector('.envelope-wrapper');
+    const heartsContainer = document.querySelector('.hearts-container');
+
+    envelope.addEventListener('click', () => {
+      envelope.classList.toggle('flap');
+
+      if (envelope.classList.contains('flap')) {
+        createHearts();
+      } else {
+        heartsContainer.innerHTML = '';
+      }
+    });
+
+    function createHearts() {
+      heartsContainer.innerHTML = '';
+
+      for (let i = 0; i < 30; i++) {
+        setTimeout(() => {
+          const heart = document.createElement('div');
+          heart.classList.add('floating-heart');
+          heart.textContent = '❤️';
+
+          heart.style.left = `${Math.random() * 100}vw`;
+          heart.style.bottom = '0';
+          heart.style.fontSize = `${Math.random() * 20 + 10}px`;
+          heart.style.animationDuration = `${Math.random() * 2 + 3}s`;
+
+          heartsContainer.appendChild(heart);
+
+          setTimeout(() => {
+            heart.remove();
+          }, 10000);
+        }, i * 100);
+      }
+    }
+  </script>
+</body>
+</html>
