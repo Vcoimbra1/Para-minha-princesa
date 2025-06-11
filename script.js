@@ -44,6 +44,6 @@ function createHearts() {
           setTimeout(() => {
               heart.remove();
           }, duration * 1000);
-      }, i * 150);
+      }, i * 200);
   }
 }
